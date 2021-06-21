@@ -81,7 +81,7 @@ namespace StarChart.Controllers
             _context.CelestialObjects.Add(co);
             _context.SaveChanges();
 
-            return CreatedAtRoute();
+            return CreatedAtRoute("",new CelestialObject { });
 
         }
     }
