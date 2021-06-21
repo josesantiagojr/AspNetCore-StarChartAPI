@@ -22,7 +22,7 @@ namespace StarChart.Controllers
         [HttpGet("{id:int}", Name = "GetById")]       
         public IActionResult GetById(int id)
         {
-           var myobject = _context.CelestialObjects.Find(id);
+           CelestialObject myobject = _context.CelestialObjects.Find(id);
 
             if(myobject is null)
             {
@@ -37,7 +37,7 @@ namespace StarChart.Controllers
         [HttpGet("{name}", Name = "GetByName")]
         public ActionResult<CelestialObject[]> GetByName(string name)
         {
-            var myobjects = _context.CelestialObjects.Find(name);
+            CelestialObject myobjects = _context.CelestialObjects.Find(name);
 
             if (myobjects is null)
             {
