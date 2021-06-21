@@ -63,10 +63,14 @@ namespace StarChart.Controllers
                 return NotFound();
             }
 
- 
+            foreach (var obj in myobjects)
+            {
+                obj.Satellites = _context.CelestialObjects.Where(x => x.OrbitedObjectId == obj.OrbitedObjectId).ToList();
+            }
 
 
-            return Ok(myobjects.ToList());
+
+            return Ok(myobjects);
         }
 
         [HttpPost]
