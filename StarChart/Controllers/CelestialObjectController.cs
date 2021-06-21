@@ -53,11 +53,10 @@ namespace StarChart.Controllers
             return Ok(myobjects);
         }
 
-        [HttpGet(Name = "GetAll")]
+        [HttpGet]
         public IActionResult GetAll()
         {
-            var myobjects = from o in _context.CelestialObjects
-                            select o;
+            var myobjects = _context.CelestialObjects.ToList();
 
             if (myobjects.Count() == 0)
             {
